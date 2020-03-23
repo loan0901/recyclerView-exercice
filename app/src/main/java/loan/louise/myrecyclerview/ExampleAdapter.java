@@ -13,8 +13,17 @@ import java.util.ArrayList;
 
 public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder> {
     private ArrayList<ExampleItem> mExampleList;
+    private OnItemClickListener mListener;
 
-    public static class ExampleViewHolder extends RecyclerView.ViewHolder{
+    public interface OnItemClickListener{
+        void OnItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        mListener = listener;
+    }
+
+    public class ExampleViewHolder extends RecyclerView.ViewHolder{
         public ImageView mImageView;
         public TextView mTextView1;
         public TextView mTextView2;
@@ -24,6 +33,18 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
             mImageView = itemView.findViewById(R.id.myImageView);
             mTextView1 = itemView.findViewById(R.id.myTextView1);
             mTextView2 = itemView.findViewById(R.id.myTextView2);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(mListener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION){
+                            mListener.OnItemClick(position);
+                        }
+                    }
+                }
+            });
         }
     }
 

@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -13,12 +14,16 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class SecActivity extends AppCompatActivity{
+public class SecActivity extends AppCompatActivity implements ExampleAdapter.OnItemClickListener {
+    public static final String EXTRA_IMAGE = "image";
+    public static final String EXTRA_TITRE = "titre";
+    public static final String EXTRA_DESC = "desc";
 
     private ArrayList<ExampleItem> mExampleList;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private ExampleAdapter mExampleAdapter;
 
     private Button boutonPlus;
     private Button boutonMoin;
@@ -47,6 +52,7 @@ public class SecActivity extends AppCompatActivity{
 
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
+        mExampleAdapter.setOnItemClickListener(SecActivity.this);
 
         //Bouton Plus
         boutonPlus = findViewById(R.id.button_add);
@@ -126,4 +132,15 @@ public class SecActivity extends AppCompatActivity{
     }
 
 
+    @Override
+    public void OnItemClick(int position) {
+        Intent detailIntent = new Intent(this,DetailActivity.class);
+        ExampleItem clickedItem = mExampleList.get(position);
+
+        detailIntent.putExtra(EXTRA_IMAGE, clickedItem.getImageResource());
+        detailIntent.putExtra(EXTRA_TITRE, clickedItem.getText1());
+        detailIntent.putExtra(EXTRA_DESC, clickedItem.getText2());
+
+        startActivity(detailIntent);
+    }
 }
