@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#AD7A7A7A</color>
+    <color name="black">#000000</color>
+    <color name="grey">#8DB1B1B1</color>
+    <color name="colorPrimaryDark">#A93D3D3D</color>
+    <color name="gris_clair">#E0E0E0</color>
+    <color name="blanc">#FFFFFF</color>
+    <color name="bouton_plus">#993CBB16</color>
+    <color name="bouton_moin">#97B81919</color>
+    <color name="colorAccent">#97FF0000</color>
+</resources>
