@@ -21,9 +21,8 @@ public class SecActivity extends AppCompatActivity implements ExampleAdapter.OnI
 
     private ArrayList<ExampleItem> mExampleList;
     private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private ExampleAdapter mExampleAdapter;
+    private ExampleAdapter mAdapter;
 
     private Button boutonPlus;
     private Button boutonMoin;
@@ -52,7 +51,7 @@ public class SecActivity extends AppCompatActivity implements ExampleAdapter.OnI
 
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
-        mExampleAdapter.setOnItemClickListener(SecActivity.this);
+        mAdapter.setOnItemClickListener(SecActivity.this);
 
         //Bouton Plus
         boutonPlus = findViewById(R.id.button_add);
