@@ -30,7 +30,7 @@ public class DetailActivity extends AppCompatActivity {
         TextView textViewTitre = findViewById(R.id.titre_detail);
         TextView textViewDesc = findViewById(R.id.desc_detail);
 
-        Picasso.with(this).load(image).fit().centerInside().into(imageView);
+        Picasso.with(this).load(image).fit().into(imageView);
         textViewTitre.setText(titre);
         textViewDesc.setText(desc);
     }

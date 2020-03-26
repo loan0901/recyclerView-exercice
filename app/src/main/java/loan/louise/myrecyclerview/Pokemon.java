@@ -1,18 +1,18 @@
 package loan.louise.myrecyclerview;
 
-public class ExampleItem {
-    private int mImageResource;
+public class Pokemon {
+    private String mImageURL;
     String mText1;
     String mText2;
 
-    public ExampleItem(int imageResource, String text1, String text2){
-        mImageResource = imageResource;
+    public Pokemon(String imageResource, String text1, String text2){
+        mImageURL = imageResource;
         mText1 = text1;
         mText2 = text2;
     }
 
-    public int getImageResource(){
-        return mImageResource;
+    public String getImageResource(){
+        return mImageURL;
     }
     public String getText1(){
         return mText1;
