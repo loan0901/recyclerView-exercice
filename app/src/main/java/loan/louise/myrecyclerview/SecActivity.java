@@ -4,13 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -32,10 +29,13 @@ public class SecActivity extends AppCompatActivity implements PokemonAdapter.OnI
         setContentView(R.layout.activity_sec);
 
         mExampleList = new ArrayList<>();
-        mExampleList.add(new Pokemon("https://www.pokepedia.fr/images/thumb/e/e7/Pikachu-RFVF.png/375px-Pikachu-RFVF.png", "Pikachu", "Pokemon électrique"));
+
         mExampleList.add(new Pokemon("https://www.pokepedia.fr/images/thumb/8/89/Salam%C3%A8che-RFVF.png/375px-Salam%C3%A8che-RFVF.png", "Salameche", "Pokemon feu"));
         mExampleList.add(new Pokemon("https://www.pokepedia.fr/images/6/64/Reptincel-RFVF.png", "Reptincel", "Pokemon feu"));
         mExampleList.add(new Pokemon("https://www.pokepedia.fr/images/thumb/1/17/Dracaufeu-RFVF.png/375px-Dracaufeu-RFVF.png", "Dracaufeu", "Pokemon feu"));
+        mExampleList.add(new Pokemon("https://www.pokepedia.fr/images/thumb/c/cc/Carapuce-RFVF.png/375px-Carapuce-RFVF.png", "Carapuce", "Pokemon eau"));
+        mExampleList.add(new Pokemon("https://www.pokepedia.fr/images/thumb/2/2a/Carabaffe-RFVF.png/375px-Carabaffe-RFVF.png", "Carabaffe", "Pokemon eau"));
+        mExampleList.add(new Pokemon("https://www.pokepedia.fr/images/thumb/2/24/Tortank-RFVF.png/375px-Tortank-RFVF.png", "Tortank", "Pokemon eau"));
 
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
@@ -45,13 +45,13 @@ public class SecActivity extends AppCompatActivity implements PokemonAdapter.OnI
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.setOnItemClickListener(SecActivity.this);
-        
+
         //Bouton Plus
         boutonPlus = findViewById(R.id.button_add);
         boutonPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mExampleList.add(new Pokemon("https://www.pokepedia.fr/images/thumb/c/cc/Carapuce-RFVF.png/375px-Carapuce-RFVF.png", "Carapuce", "Pokemon eau"));
+                mExampleList.add(new Pokemon("https://www.pokepedia.fr/images/thumb/e/e7/Pikachu-RFVF.png/375px-Pikachu-RFVF.png", "Pikachu", "Pokemon électrique"));
                 mAdapter.notifyDataSetChanged();
                 }
         });
